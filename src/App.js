@@ -4,8 +4,8 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 
-export default function App() {
-  let [city, setCity] = useState("");
+export default function App(props) {
+  let [city, setCity] = useState(props.defaultCity);
   let [weather, setWeather] = useState({ ready: false });
 
   function changeCity(event) {
