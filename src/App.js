@@ -31,79 +31,84 @@ export default function App(props) {
     });
   }
 
-  return (
-    <div>
-      <div className="Weather">
-        <div className="col-6">
-          <form id="place" onSubmit={submitEvent}>
-            <input
-              type="text"
-              placeholder="Enter your city"
-              id="search"
-              onChange={changeCity}
-            />
-          </form>
-        </div>
-        <div className="col-6">
-          <button type="button" id="searchButton" className="btn btn-primary">
-            Search
-          </button>
+  if (weather.ready) {
+    return (
+      <div>
+        <div className="Weather">
+          <div className="col-6">
+            <form id="place" onSubmit={submitEvent}>
+              <input
+                type="text"
+                placeholder="Enter your city"
+                id="search"
+                onChange={changeCity}
+              />
+            </form>
+          </div>
+          <div className="col-6">
+            <button type="button" id="searchButton" className="btn btn-primary">
+              Search
+            </button>
 
-          <button type="button" id="current" className="btn btn-secondary">
-            Current
-          </button>
-        </div>
-        {weather.ready && (
-          <div>
-            <h1> {weather.city} </h1>
-            <div className="container">
-              <div className="row">
-                <div className="col-6">
-                  <ul>
-                    <li id="date">
-                      Date: <strong>{weather.date} </strong>
-                    </li>
-                    <li className="text-capitalize" id="weather-description">
-                      Description: <strong>{weather.description}</strong>
-                    </li>
-                  </ul>
+            <button type="button" id="current" className="btn btn-secondary">
+              Current
+            </button>
+          </div>
+          {weather.ready && (
+            <div>
+              <h1> {weather.city} </h1>
+              <div className="container">
+                <div className="row">
+                  <div className="col-6">
+                    <ul>
+                      <li id="date">
+                        Date: <strong>{weather.date} </strong>
+                      </li>
+                      <li className="text-capitalize" id="weather-description">
+                        Description: <strong>{weather.description}</strong>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="col-6">
+                    <ul>
+                      <li>
+                        Wind:{" "}
+                        <span id="wind">
+                          <strong> {weather.wind} km/h </strong>
+                        </span>
+                      </li>
+                      <li>
+                        Humidity:{" "}
+                        <span id="humidity">
+                          {" "}
+                          <strong> {weather.humidity} % </strong>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div></div>
                 </div>
-                <div className="col-6">
-                  <ul>
-                    <li>
-                      Wind:{" "}
-                      <span id="wind">
-                        <strong> {weather.wind} km/h </strong>
-                      </span>
-                    </li>
-                    <li>
-                      Humidity:{" "}
-                      <span id="humidity">
-                        {" "}
-                        <strong> {weather.humidity} % </strong>
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-                <div></div>
-              </div>
-              <div class="d-flex weather-temperature">
-                <img
-                  src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
-                  alt={weather.description}
-                  id="icon"
-                />
-                <div className="temperature-info">
-                  <strong id="degrees">{weather.temp}</strong>
-                  <span className="units" id="celsius">
-                    °C
-                  </span>
+                <div class="d-flex weather-temperature">
+                  <img
+                    src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+                    alt={weather.description}
+                    id="icon"
+                  />
+                  <div className="temperature-info">
+                    <strong id="degrees">{weather.temp}</strong>
+                    <span className="units" id="celsius">
+                      °C
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    submitEvent({ preventDefault: function () {} });
+    return "Loading...";
+  }
 }
