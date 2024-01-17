@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
+import Forecast from "./Forecast";
 
 export default function App(props) {
   let [city, setCity] = useState(props.defaultCity);
@@ -104,6 +105,7 @@ export default function App(props) {
               </div>
             </div>
           )}
+          <Forecast code={props.weather.icon} />
         </div>
       </div>
     );
