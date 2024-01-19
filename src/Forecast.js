@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 
 export default function Forecast(props) {
+  console.log(props);
   return (
     <div className="Forecast">
       <div className="row">
@@ -11,7 +12,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
               id="icon"
             />{" "}
           </div>{" "}
@@ -24,7 +25,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
               id="icon"
             />{" "}
           </div>{" "}
@@ -37,7 +38,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
               id="icon"
             />{" "}
           </div>{" "}
@@ -50,7 +51,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
               id="icon"
             />{" "}
           </div>{" "}
@@ -63,7 +64,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
               id="icon"
             />{" "}
           </div>{" "}
@@ -76,7 +77,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
               id="icon"
             />{" "}
           </div>{" "}

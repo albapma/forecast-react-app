@@ -105,7 +105,7 @@ export default function App(props) {
               </div>
             </div>
           )}
-          <Forecast code={props.weather.icon} />
+          <Forecast code={props.weather} />
         </div>
       </div>
     );
