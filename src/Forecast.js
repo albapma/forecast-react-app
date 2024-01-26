@@ -12,7 +12,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
+              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
               id="icon"
             />{" "}
           </div>{" "}
@@ -25,7 +25,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
+              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
               id="icon"
             />{" "}
           </div>{" "}
@@ -38,7 +38,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
+              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
               id="icon"
             />{" "}
           </div>{" "}
@@ -51,7 +51,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
+              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
               id="icon"
             />{" "}
           </div>{" "}
@@ -64,7 +64,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
+              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
               id="icon"
             />{" "}
           </div>{" "}
@@ -77,7 +77,7 @@ export default function Forecast(props) {
           <div className="day">Thursday</div>
           <div class="d-flex weather-temperature">
             <img
-              src={`http://openweathermap.org/img/wn/${props.code.icon}.png`}
+              src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
               id="icon"
             />{" "}
           </div>{" "}
