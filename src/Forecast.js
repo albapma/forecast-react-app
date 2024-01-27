@@ -27,7 +27,7 @@ export default function Forecast(props) {
             <div className="day">{forecast[0].dt}</div>
             <div class="d-flex weather-temperature">
               <img
-                src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
                 id="icon"
               />{" "}
             </div>{" "}
@@ -45,7 +45,7 @@ export default function Forecast(props) {
             <div className="day">Thursday</div>
             <div class="d-flex weather-temperature">
               <img
-                src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
                 id="icon"
               />{" "}
             </div>{" "}
@@ -58,7 +58,7 @@ export default function Forecast(props) {
             <div className="day">Thursday</div>
             <div class="d-flex weather-temperature">
               <img
-                src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
                 id="icon"
               />{" "}
             </div>{" "}
@@ -71,7 +71,7 @@ export default function Forecast(props) {
             <div className="day">Thursday</div>
             <div class="d-flex weather-temperature">
               <img
-                src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
                 id="icon"
               />{" "}
             </div>{" "}
@@ -84,7 +84,7 @@ export default function Forecast(props) {
             <div className="day">Thursday</div>
             <div class="d-flex weather-temperature">
               <img
-                src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
                 id="icon"
               />{" "}
             </div>{" "}
@@ -97,7 +97,7 @@ export default function Forecast(props) {
             <div className="day">Thursday</div>
             <div class="d-flex weather-temperature">
               <img
-                src={`http://openweathermap.org/img/wn/${props.code}@2x.png`}
+                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
                 id="icon"
               />{" "}
             </div>{" "}
@@ -112,7 +112,7 @@ export default function Forecast(props) {
   } else {
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
-    let apiUrl = `api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&appid=8c78e9e7e9928cd1a2a6f923072c3dec&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=8c78e9e7e9928cd1a2a6f923072c3dec&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
     return null;

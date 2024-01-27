@@ -29,6 +29,7 @@ export default function App(props) {
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000).toDateString(),
+      coordinates: response.data.coord,
     });
   }
 
@@ -105,7 +106,7 @@ export default function App(props) {
               </div>
             </div>
           )}
-          <Forecast code={weather.icon} />
+          <Forecast coordinates={weather.coordinates} />
         </div>
       </div>
     );
