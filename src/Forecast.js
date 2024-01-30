@@ -12,9 +12,9 @@ export default function Forecast(props) {
     setLoaded(true);
   }
 
-  function day() {
-    let date = new Date(props.data.dt * 1000);
-    let day = date.getDate();
+  function day(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     return days[day];
   }
@@ -23,89 +23,31 @@ export default function Forecast(props) {
     return (
       <div className="Forecast">
         <div className="row">
-          <div className="col-2">
-            <div className="day">{forecast[0].dt}</div>
-            <div class="d-flex weather-temperature">
-              <img
-                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
-                id="icon"
-              />{" "}
-            </div>{" "}
-            <div className="temperatures">
-              <span className="Temperature-max">
-                {Math.round(forecast[0].temp.max)}
-              </span>
-              <span className="Temperature-min">
-                {" "}
-                {Math.round(forecast[0].temp.min)}
-              </span>
-            </div>
-          </div>
-          <div className="col-2">
-            <div className="day">Thursday</div>
-            <div class="d-flex weather-temperature">
-              <img
-                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
-                id="icon"
-              />{" "}
-            </div>{" "}
-            <div className="temperatures">
-              <span className="Temperature-max">22</span>
-              <span className="Temperature-min"> 15</span>
-            </div>
-          </div>
-          <div className="col-2">
-            <div className="day">Thursday</div>
-            <div class="d-flex weather-temperature">
-              <img
-                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
-                id="icon"
-              />{" "}
-            </div>{" "}
-            <div className="temperatures">
-              <span className="Temperature-max">22</span>
-              <span className="Temperature-min"> 15</span>
-            </div>
-          </div>
-          <div className="col-2">
-            <div className="day">Thursday</div>
-            <div class="d-flex weather-temperature">
-              <img
-                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
-                id="icon"
-              />{" "}
-            </div>{" "}
-            <div className="temperatures">
-              <span className="Temperature-max">22</span>
-              <span className="Temperature-min"> 15</span>
-            </div>
-          </div>
-          <div className="col-2">
-            <div className="day">Thursday</div>
-            <div class="d-flex weather-temperature">
-              <img
-                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
-                id="icon"
-              />{" "}
-            </div>{" "}
-            <div className="temperatures">
-              <span className="Temperature-max">22</span>
-              <span className="Temperature-min"> 15</span>
-            </div>
-          </div>
-          <div className="col-2">
-            <div className="day">Thursday</div>
-            <div class="d-flex weather-temperature">
-              <img
-                src={`http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`}
-                id="icon"
-              />{" "}
-            </div>{" "}
-            <div className="temperatures">
-              <span className="Temperature-max">22</span>
-              <span className="Temperature-min"> 15</span>
-            </div>
-          </div>
+          {forecast.map((forecastDay, index) => {
+            if (index > 0 && index <= 6) {
+              return (
+                <div className="col-2">
+                  <div className="day">{day(forecastDay.dt)}</div>
+                  <div class="d-flex weather-temperature">
+                    <img
+                      src={`http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png`}
+                      id="icon"
+                    />
+                  </div>
+                  <div className="temperatures">
+                    <span className="Temperature-max">
+                      {Math.round(forecastDay.temp.max)}
+                    </span>{" "}
+                    <span className="Temperature-min">
+                      {Math.round(forecastDay.temp.min)}
+                    </span>
+                  </div>
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
         </div>
       </div>
     );
