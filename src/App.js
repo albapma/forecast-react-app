@@ -51,10 +51,6 @@ export default function App(props) {
             <button type="button" id="searchButton" className="btn btn-primary">
               Search
             </button>
-
-            <button type="button" id="current" className="btn btn-secondary">
-              Current
-            </button>
           </div>
           {weather.ready && (
             <div>
