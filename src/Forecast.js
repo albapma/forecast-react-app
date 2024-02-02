@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
@@ -6,6 +6,10 @@ import "bootstrap/dist/js/bootstrap.bundle";
 export default function Forecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinates]);
 
   function handleResponse(response) {
     setForecast(response.data.daily);
@@ -36,10 +40,10 @@ export default function Forecast(props) {
                   </div>
                   <div className="temperatures">
                     <span className="Temperature-max">
-                      {Math.round(forecastDay.temp.max)}
+                      {Math.round(forecastDay.temp.max)}°C
                     </span>{" "}
                     <span className="Temperature-min">
-                      {Math.round(forecastDay.temp.min)}
+                      {Math.round(forecastDay.temp.min)}°C
                     </span>
                   </div>
                 </div>
