@@ -34,6 +34,7 @@ export default function Forecast(props) {
                   <div className="day">{day(forecastDay.dt)}</div>
                   <div class="d-flex weather-temperature">
                     <img
+                      alt="forecast-details"
                       src={`http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png`}
                       id="icon"
                     />
